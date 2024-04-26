@@ -1,0 +1,68 @@
+.RecipeList {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 900px;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #333;
+}
+
+.RecipeList h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+/* recipe list */
+.RecipeList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.RecipeList li {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.RecipeList strong {
+    color: #34495e; 
+    font-size: 18px;
+}
+
+/* nested rating lists */
+.RecipeList ul ul {
+    margin-top: 10px;
+    background-color: #ecf0f1; /* Light grey background for nested lists */
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.RecipeList ul ul li {
+    border-bottom: 1px solid #ddd; 
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+/* Link styling */
+.RecipeList a {
+    text-decoration: none;
+    color: #2980b9; /* Blue color for links */
+    font-weight: bold;
+}
+
+.RecipeList a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .RecipeList {
+        margin: 10px;
+        padding: 10px;
+    }
+}
