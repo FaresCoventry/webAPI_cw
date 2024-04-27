@@ -103,7 +103,7 @@ const Recipe = require('../models/Recipe')
  *       500:
  *         description: Server error
  */
-router.get('/search', async (req, res) => {
+router.get('/search', async (req, res) => {  //Route for the search bar/home page
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -148,7 +148,7 @@ const corsOptions = {
  *       500:
  *         description: Server error
  */
-router.post('/', cors(corsOptions), async (req, res) => {
+router.post('/', cors(corsOptions), async (req, res) => {  //Route that puts recipes in the database
     const recipes = req.body;  // Expect an array of recipe objects
 
     if (!recipes || recipes.length === 0) {
@@ -216,7 +216,7 @@ router.post('/', cors(corsOptions), async (req, res) => {
  *       500:
  *         description: Server error
  */
-router.get('/:id', cors(corsOptions), async (req, res) => {
+router.get('/:id', cors(corsOptions), async (req, res) => {  // Get specific recipe using ID
     try {
         const recipe = await Recipe.findById(req.params.id);
         if (!recipe) {
@@ -264,7 +264,7 @@ router.delete('/:id', (req, res) => {
  *       500:
  *         description: Server error
  */
-router.post('/:id/ratings', cors(corsOptions), async (req, res) => {
+router.post('/:id/ratings', cors(corsOptions), async (req, res) => {  //Route to post a rating for a recipe by ID
     try {
         const recipe = await Recipe.findById(req.params.id);
         if (!recipe) {
@@ -307,7 +307,7 @@ router.post('/:id/ratings', cors(corsOptions), async (req, res) => {
  *       500:
  *         description: Failed to fetch recipe details
  */
-router.get('/details/:id', cors(corsOptions), async (req, res) => {
+router.get('/details/:id', cors(corsOptions), async (req, res) => {  //Route to get details of the recipe from the API
     const { id } = req.params; // Get the recipe ID from the URL parameter
     const apiKey = process.env.SPOONACULAR_API_KEY; 
 
@@ -342,7 +342,7 @@ router.get('/details/:id', cors(corsOptions), async (req, res) => {
  *       500:
  *         description: Failed to fetch recipe information
  */
-router.get('/information/:id', cors(corsOptions), async (req, res) => {
+router.get('/information/:id', cors(corsOptions), async (req, res) => {  //Route to get information of the recipe from API
     const { id } = req.params;
     const apiKey = process.env.SPOONACULAR_API_KEY; 
 
@@ -359,7 +359,7 @@ router.get('/information/:id', cors(corsOptions), async (req, res) => {
 
 // Rating GET
 
-router.get('/', cors(corsOptions), async (req, res) => {
+router.get('/', cors(corsOptions), async (req, res) => {  //Route to get all the recipes in the database
     try {
         const recipes = await Recipe.find(); // Finds all recipes in the database
         res.json(recipes);
